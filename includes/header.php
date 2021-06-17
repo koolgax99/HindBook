@@ -43,17 +43,17 @@ if (isset($_SESSION['username'])) {
 	<div class="top_bar">
 
 		<div class="logo">
-			<a href="index.php">HindBook!</a>
+			<a href="index.php">H!ndB<span style="color:black;">oo</span>k</a>
 		</div>
 
 
 		<div class="search">
 
-			<form action="search.php" method="GET" name="search_form">
+			<form action="search.php" method="GET" name="search_form" style=>
 				<input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
 
 				<div class="button_holder">
-					<img src="assets/images/icons/magnifying_glass.png">
+					<img style="position:relative; top:6px;" src="assets/images/icons/magnifying_glass.png">
 				</div>
 
 			</form>
