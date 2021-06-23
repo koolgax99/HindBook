@@ -23,7 +23,7 @@ if(isset($_POST['post'])){
 		}
 
 		if($uploadOk) {
-			
+
 			if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $imageName)) {
 				//image uploaded okay
 			}
@@ -52,13 +52,12 @@ if(isset($_POST['post'])){
 		<a href="<?php echo $userLoggedIn; ?>">  <img src="<?php echo $user['profile_pic']; ?>"> </a>
 
 		<div class="user_details_left_right">
-			<a style="color:#1877f2" href="<?php echo $userLoggedIn; ?>">
+			<a href="<?php echo $userLoggedIn; ?>">
 			<?php 
 			echo $user['first_name'] . " " . $user['last_name'];
 
 			 ?>
 			</a>
-			<br>
 			<br>
 			<?php echo "Posts: " . $user['num_posts']. "<br>"; 
 			echo "Likes: " . $user['num_likes'];
@@ -93,7 +92,7 @@ if(isset($_POST['post'])){
 			$query = mysqli_query($con, "SELECT * FROM trends ORDER BY hits DESC LIMIT 9");
 
 			foreach ($query as $row) {
-				
+
 				$word = $row['title'];
 				$word_dot = strlen($word) >= 14 ? "..." : "";
 
@@ -154,7 +153,7 @@ if(isset($_POST['post'])){
 		// 		if(inProgress) {
 		// 			return;
 		// 		}
-				
+
 		// 		inProgress = true;
 		// 		$('#loading').show();
 
@@ -209,7 +208,7 @@ $(function(){
         if(inProgress) { //If it is already in the process of loading some posts, just return
 			return;
 		}
-		
+
 		inProgress = true;
 		$('#loading').show();
 

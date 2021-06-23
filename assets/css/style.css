@@ -7,8 +7,6 @@
 	src: url('../fonts/Bellota-BoldItalic.otf');
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
 body {
 	line-height: 17px;
 	background-color: #E6EAE8;
@@ -22,8 +20,9 @@ a {
 .top_bar {
 	width: 100%;
 	min-width: 1050px;
-	height: 50px;
-	background-color: #1877f2;
+	height: 40px;
+	background-color: #20aae5;
+	border-bottom: 0.25em solid #1894ca;
 	margin: 0 0 10px 0;
 	display: inline-flex;
 	position: fixed;
@@ -31,13 +30,13 @@ a {
 }
 
 .logo a{
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Bellota-BoldItalic', sans-serif;
 	margin-left: 10px;
 	font-size: 30;
-	font-weight: bold;
 	position: relative;
-	top: 15px;
-	color: #ffffff;
+	top: 9px;
+	text-shadow: #73B6E2 0.5px 0.5px 0px;
+	color: #1086BA;
 }
 
 a:hover {
@@ -53,15 +52,13 @@ nav {
 
 nav a{
 	position: relative;
-	top: 10px;
 	color: #fff;
-	font-family: Helvetica, sans-serif;
 	text-decoration: none;
 	font-size: 17px;
 }
 
 nav a:hover {
-	border-bottom: 7px solid #f7f4f3;
+	border-bottom: 7px solid #e67e22;
 	color: #fff;
 }
 
@@ -85,35 +82,28 @@ nav a:hover {
 }
 
 .user_details {
-	position: relative;
-	left: -170px;
-	top:10px;
-	width: 330px;
+	width: 250px;
 	float: left;
 	margin-bottom: 20px;
 }
 
 .user_details img {
-	height: 100px;
-	border-radius: 50px;
+	height: 120px;
+	border-radius: 5px;
 	margin-right: 5px;
 }
 
 .user_details_left_right {
 	width: 120px;
-	left: 130px;
 	display: inline-table;
 	position: absolute;
 }
 
 .main_column {
-	position:relative;
-	top: 10px;
-	right: 100px;
 	float:right;
 	width: 70%;
 	z-index: -1;
-	min-height: 250px;
+	min-height: 170px;
 }
 
 .post_form {
@@ -126,7 +116,6 @@ nav a:hover {
 	border-radius: 3px;
 	margin-right: 5px;
 	border: 1px solid #D3D3D3;
-	font-family:  Helvetica, sans-serif;
 	font-size: 12px;
 	padding: 5px;
 }
@@ -138,15 +127,13 @@ textarea:focus {
 .post_form input[type="submit"] {
 	width: 11%;
 	height: 60px;
-	border: 10px;
-	border-color: grey;
+	border: none;
 	border-radius: 3px;
-	background-color: #42B72A;
-	font-family: Helvetica, sans-serif;
-	font-weight: bolder;
-	color: #fcfafa;
-	
-	font-size: 120%;
+	background-color: #3498db;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+	color: #1E75CA;
+	text-shadow: #73B6E2 0.5px 0.5px 0px;
+	font-size: 90%;
 	position: absolute;
 	outline: 0;
 	margin: 0;
@@ -499,12 +486,10 @@ textarea:focus {
 
 .search #search_text_input {
 	border: thin solid #E5E5E5;
-	position: absolute;
   	float: left;
-	left: 29%;
-  	height: 32px;
+  	height: 23px;
   	outline: 0;
-  	width: 160px;
+  	width: 100px;
   	border-top-right-radius: 0;
   	border-bottom-right-radius: 0;
   	border-top-left-radius: 3px;
@@ -512,15 +497,13 @@ textarea:focus {
 }
 
 .button_holder {
-	position: absolute;
-	left: 39.4%;
-	background-color: #42B72A;
+	background-color: #F1F1F1;
   	border: thin solid #e5e5e5;
   	cursor: pointer;
   	float: left;
-  	height: 32px;
+  	height: 23px;
   	text-align: center;
-  	width: 60px;
+  	width: 50px;
   	border-top-right-radius: 3px;
   	border-bottom-right-radius: 3px;
 }
@@ -619,7 +602,3 @@ img.profilePicSmall {
 	border-radius: 25px;
 	margin: 5px; 
 }
-
-
-
-
