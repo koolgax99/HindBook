@@ -60,124 +60,100 @@ if (isset($_POST['post_message'])) {
     padding-left: 0px;
   }
 </style>
+<main style="margin-top: 40px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+          <div class="user_details column">
+            <div class="row">
+              <div class="col">
+                <img src=" <?php echo $user_array['profile_pic']; ?>">
+              </div>
+              <div class="col">
+                <a href="<?php echo $userLoggedIn; ?>">
+                  <?php
+                  echo $user_array['first_name'] . " " . $user_array['last_name'];
+                  ?>
+                </a>
+                <br>
+                <?php echo "Posts: " . $user_array['num_posts'] . "<br>";
+                echo "Likes: " . $user_array['num_likes'] . "<br>";
+                echo "Friends: " . $num_friends . "<br>";
+                $profile_user_obj = new User($con, $username);
+                if ($profile_user_obj->isClosed()) {
+                  header("Location: user_closed.php");
+                }
 
-<div class="profile_left">
-  <img src="<?php echo $user_array['profile_pic']; ?>">
+                $logged_in_user_obj = new User($con, $userLoggedIn);
+                if ($userLoggedIn != $username) {
+                  echo "Mutual Friends: " . $logged_in_user_obj->getMutualFriends($username);
+                }
+                ?>
+              </div>
+            </div>
+            <br>
 
-  <div class="profile_info">
-    <p><?php echo "Posts: " . $user_array['num_posts']; ?></p>
-    <p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
-    <p><?php echo "Friends: " . $num_friends ?></p>
-    <p><a href="friends.php">View friends</a></p>
-  </div>
+            <div class="row">
+              <form action="<?php echo $username; ?>" method="POST">
+                <?php
+                $profile_user_obj = new User($con, $username);
+                if ($profile_user_obj->isClosed()) {
+                  header("Location: user_closed.php");
+                }
 
-  <form action="<?php echo $username; ?>" method="POST">
-    <?php
-    $profile_user_obj = new User($con, $username);
-    if ($profile_user_obj->isClosed()) {
-      header("Location: user_closed.php");
-    }
+                $logged_in_user_obj = new User($con, $userLoggedIn);
 
-    $logged_in_user_obj = new User($con, $userLoggedIn);
+                if ($userLoggedIn != $username) {
 
-    if ($userLoggedIn != $username) {
-
-      if ($logged_in_user_obj->isFriend($username)) {
-        echo '<input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>';
-      } else if ($logged_in_user_obj->didReceiveRequest($username)) {
-        echo '<input type="submit" name="respond_request" class="warning" value="Respond to Request"><br>';
-      } else if ($logged_in_user_obj->didSendRequest($username)) {
-        echo '<input type="submit" name="cancel_request" class="default" value="Request Sent"><br>';
-      } else
-        echo '<input type="submit" name="add_friend" class="success" value="Add Friend"><br>';
-    }
-
-    ?>
-  </form>
-  <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
-
-  <?php
-  if ($userLoggedIn != $username) {
-    echo '<div class="profile_info_bottom">';
-    echo $logged_in_user_obj->getMutualFriends($username) . " Mutual friends";
-    echo '</div>';
-  }
-
-
-  ?>
-
-</div>
-
-
-<div class="profile_main_column column">
-
-  <ul class="nav nav-tabs" role="tablist" id="profileTabs">
-    <li role="presentation" class="active"><a href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a></li>
-    <li role="presentation"><a href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a></li>
-  </ul>
-
-  <div class="tab-content">
-
-    <div role="tabpanel" class="tab-pane active" id="newsfeed_div">
-      <div class="posts_area"></div>
-      <img id="loading" src="assets/images/icons/loading.gif">
-    </div>
-
-
-    <div role="tabpanel" class="tab-pane" id="messages_div">
-      <?php
-      echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
-      echo "<div class='loaded_messages' id='scroll_messages'>";
-      echo $message_obj->getMessages($username);
-      echo "</div>";
-      ?>
-
-      <div class="message_post">
-        <form action="" method="POST">
-          <textarea name='message_body' id='message_textarea' placeholder='Write your message ...'></textarea>
-          <input type='submit' name='post_message' class='info' id='message_submit' value='Send'>
-        </form>
-      </div>
-
-      <script>
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function() {
-          var div = document.getElementById("scroll_messages");
-          div.scrollTop = div.scrollHeight;
-        });
-      </script>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="postModalLabel">Post something</h4>
-      </div>
-
-      <div class="modal-body">
-        <p>This will appear on the newsfeed for your friends to see. </p>
-
-        <form class="profile_post" action="profile.php" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-            <textarea class="form-control" name="post_body"></textarea>
-            <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
-            <input type="hidden" name="user_to" value="<?php echo $username; ?>">
+                  if ($logged_in_user_obj->isFriend($username)) {
+                    echo '<button type="submit" name="remove_friend" class="btn btn-danger" value="Remove Friend">Remove Friend</button><br>';
+                  } else if ($logged_in_user_obj->didReceiveRequest($username)) {
+                    echo '<button type="submit" name="respond_request" class="btn btn-warning" value="Respond to Request">Respond to Request</button><br>';
+                  } else if ($logged_in_user_obj->didSendRequest($username)) {
+                    echo '<button type="submit" name="cancel_request" class="btn btn-primary" value="Request Sent">Request Sent</button><br>';
+                  } else
+                    echo '<button type="submit" name="add_friend" class="btn btn-success" value="Add Friend">Add Friend</button><br>';
+                }
+                ?>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post</button>
+      <div class="col-1">
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="posts_area"></div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Profile</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</main>
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <script>
   $(function() {
