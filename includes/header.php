@@ -37,18 +37,24 @@ if (isset($_SESSION['username'])) {
     <script src="assets/js/jquery.Jcrop.js"></script>
     <script src="assets/js/jcrop_bits.js"></script>
     <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
     <style>
         body {
             background-image: url("assets\images\backgrounds\Social_Media_Background.jpg");
-            background-color: #cccccc;
+            background-color: white;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: skyblue !important;;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="border-bottom:ridge; border-color:#99DDFF; border-shadow:#99DDFF;">
             <?php
             //Unread messages 
             $messages = new Message($con, $userLoggedIn);
@@ -64,17 +70,18 @@ if (isset($_SESSION['username'])) {
             ?>
 
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">H!ndB<span style="color:black;">oo</span>k</a>
+                <a class="navbar-brand" href="index.php" style="font-size:35px; font-family: 'Staatliches', cursive; font-weight: 600;letter-spacing: 2px;">H!ndB<span style="color:#3FD2C7;">oo</span>k</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="position:relative; left:58%;">
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
-                                <span>Messages</span>
-                                <i class="fa fa-envelope fa-lg"></i>
+                                <span style="color:#00458B;font-family: 'Staatliches', cursive; font-size:17px;">Messages</span>
+                                <i class="fa fa-envelope fa-lg"  style=
+                                "color:#00458B;"></i>
                                 <?php
                                 if ($num_messages > 0)
                                     echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
@@ -83,8 +90,9 @@ if (isset($_SESSION['username'])) {
                         </li>
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
-                                <span>Notifications</span>
-                                <i class="fa fa-bell fa-lg"></i>
+                                <span style="color:#00458B;font-family: 'Staatliches', cursive; font-size:17px;">Notifications</span>
+                                <i class="fa fa-bell fa-lg" style=
+                                "color:#00458B;"></i>
                                 <?php
                                 if ($num_notifications > 0)
                                     echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
@@ -94,8 +102,10 @@ if (isset($_SESSION['username'])) {
 
                         <li class="nav-item">
                             <a href="requests.php" class="nav-link">
-                                <span>Requests</span>
-                                <i class="fa fa-users fa-lg"></i>
+                                <span style=
+                                "color:#00458B;font-family: 'Staatliches', cursive; font-size:17px; " >Requests</span>
+                                <i class="fa fa-users fa-lg"  style=
+                                "color:#00458B;"></i>
                                 <?php
                                 if ($num_requests > 0)
                                     echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
@@ -105,23 +115,27 @@ if (isset($_SESSION['username'])) {
 
                         <li class="nav-item">
                             <a href="settings.php" class="nav-link">
-                                <span>Settings</span>
-                                <i class="fa fa-cog fa-lg"></i>
+                                <span style=
+                                "color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Settings</span>
+                                <i class="fa fa-cog fa-lg"  style=
+                                "color:#00458B;"></i>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="includes/handlers/logout.php" class="nav-link">
-                                <span>Logout</span>
-                                <i class="fa fa-sign-out fa-lg"></i>
+                                <span style=
+                                "color:#3FD2C7;font-family: 'Staatliches', cursive; font-size:17px;">Logout</span>
+                                <i class="fa fa-sign-out fa-lg" style=
+                                "color:#3FD2C7;"></i>
                             </a>
                         </li>
 
                     </ul>
 
-                    <form class="d-flex" action="search.php" method="GET" name="search_form">
-                        <input class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" action="search.php" method="GET" name="search_form" style="font-family: 'Staatliches', cursive; font-size:17px;position:relative; right:50%;">
+                        <input class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search" style="border-width:2px; border-radius:50px;">
+                        <button class="btn btn-outline-success" type="submit" style="border-radius:50px;">Search</button>
                     </form>
 
                     <div class="search_results">
