@@ -49,6 +49,33 @@ if (isset($_SESSION['username'])) {
             background-image: url("assets\images\backgrounds\Social_Media_Background.jpg");
             background-color: white;
         }
+
+        @media screen and (min-width: 0px) and (max-width:900px) {
+            .search-bar {
+                font-family: 'Staatliches', cursive;
+                font-size: 17px;
+                position: relative;
+            }
+
+            .navbar-items {
+                margin-left: 120px;
+            }
+
+        }
+
+        @media screen and (min-width: 901px) and (max-width:9000px) {
+            .search-bar {
+                font-family: 'Staatliches', cursive;
+                font-size: 17px;
+                position: relative;
+                right: 50%;
+            }
+
+            .navbar-items {
+                position: relative;
+                left: 58%;
+            }
+        }
     </style>
 </head>
 
@@ -76,12 +103,11 @@ if (isset($_SESSION['username'])) {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="position:relative; left:58%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-items">
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
                                 <span style="color:#00458B;font-family: 'Staatliches', cursive; font-size:17px;">Messages</span>
-                                <i class="fa fa-envelope fa-lg"  style=
-                                "color:#00458B;"></i>
+                                <i class="fa fa-envelope fa-lg" style="color:#00458B;"></i>
                                 <?php
                                 if ($num_messages > 0)
                                     echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
@@ -91,8 +117,7 @@ if (isset($_SESSION['username'])) {
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
                                 <span style="color:#00458B;font-family: 'Staatliches', cursive; font-size:17px;">Notifications</span>
-                                <i class="fa fa-bell fa-lg" style=
-                                "color:#00458B;"></i>
+                                <i class="fa fa-bell fa-lg" style="color:#00458B;"></i>
                                 <?php
                                 if ($num_notifications > 0)
                                     echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
@@ -102,10 +127,8 @@ if (isset($_SESSION['username'])) {
 
                         <li class="nav-item">
                             <a href="requests.php" class="nav-link">
-                                <span style=
-                                "color:#00458B;font-family: 'Staatliches', cursive; font-size:17px; " >Requests</span>
-                                <i class="fa fa-users fa-lg"  style=
-                                "color:#00458B;"></i>
+                                <span style="color:#00458B;font-family: 'Staatliches', cursive; font-size:17px; ">Requests</span>
+                                <i class="fa fa-users fa-lg" style="color:#00458B;"></i>
                                 <?php
                                 if ($num_requests > 0)
                                     echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
@@ -115,25 +138,21 @@ if (isset($_SESSION['username'])) {
 
                         <li class="nav-item">
                             <a href="settings.php" class="nav-link">
-                                <span style=
-                                "color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Settings</span>
-                                <i class="fa fa-cog fa-lg"  style=
-                                "color:#00458B;"></i>
+                                <span style="color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Settings</span>
+                                <i class="fa fa-cog fa-lg" style="color:#00458B;"></i>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="includes/handlers/logout.php" class="nav-link">
-                                <span style=
-                                "color:#3FD2C7;font-family: 'Staatliches', cursive; font-size:17px;">Logout</span>
-                                <i class="fa fa-sign-out fa-lg" style=
-                                "color:#3FD2C7;"></i>
+                                <span style="color:#3FD2C7;font-family: 'Staatliches', cursive; font-size:17px;">Logout</span>
+                                <i class="fa fa-sign-out fa-lg" style="color:#3FD2C7;"></i>
                             </a>
                         </li>
 
                     </ul>
 
-                    <form class="d-flex" action="search.php" method="GET" name="search_form" style="font-family: 'Staatliches', cursive; font-size:17px;position:relative; right:50%;">
+                    <form class="d-flex search-bar" action="search.php" method="GET" name="search_form">
                         <input class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search" style="border-width:2px; border-radius:50px;">
                         <button class="btn btn-outline-success" type="submit" style="border-radius:50px;">Search</button>
                     </form>
@@ -148,15 +167,7 @@ if (isset($_SESSION['username'])) {
         </nav>
     </header>
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <script>
         $(function() {
