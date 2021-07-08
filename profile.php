@@ -59,6 +59,21 @@ if (isset($_POST['post_message'])) {
     margin-left: 0px;
     padding-left: 0px;
   }
+
+  /* .chat {
+      width: auto;
+      border: solid 1px #EEE;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background-color: black;
+  } */
+
+  /* .message-blue {
+    background: #
+  } */
+
+  .message-green {}
 </style>
 <main style="margin-top: 40px;">
   <div class="container">
@@ -130,14 +145,37 @@ if (isset($_POST['post_message'])) {
               <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Messages</button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <div class="posts_area"></div>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Profile</div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div role="tabpanel" class="tab-pane" id="messages_div">
+                <?php
+                echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
+                echo "<div class='card shadow p-3 mb-5 bg-white rounded ' id='scroll_messages'>";
+                echo $message_obj->getMessages($username);
+                echo "</div>";
+                ?>
+
+                <div class="message_post">
+                  <form action="" method="POST">
+                    <textarea name='message_body' id='message_textarea' class="form-control" placeholder='Write your message ...'></textarea>
+                    <button type='submit' name='post_message' class='btn btn-primary' id='message_submit' value='Send'>Send</button>
+                  </form>
+                </div>
+
+                <script>
+                  $('a[data-toggle="tab"]').on('shown.bs.tab', function() {
+                    var div = document.getElementById("scroll_messages");
+                    div.scrollTop = div.scrollHeight;
+                  });
+                </script>
+              </div>
+            </div>
           </div>
         </div>
       </div>
