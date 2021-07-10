@@ -59,21 +59,6 @@ if (isset($_POST['post_message'])) {
     margin-left: 0px;
     padding-left: 0px;
   }
-
-  /* .chat {
-      width: auto;
-      border: solid 1px #EEE;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      background-color: black;
-  } */
-
-  /* .message-blue {
-    background: #
-  } */
-
-  .message-green {}
 </style>
 <main style="margin-top: 40px;">
   <div class="container">
