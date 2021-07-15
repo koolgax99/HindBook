@@ -28,22 +28,19 @@ if($query != ""){
 		else 
 			$mutual_friends = "";
 
-		echo "<div class='resultDisplay'>
-				<a href='" . $row['username'] . "' style='color: #1485BD'>
-					<div class='liveSearchProfilePic'>
-						<img src='" . $row['profile_pic'] ."'>
+		echo "<div class='card shadow p-3 bg-white rounded' style='height:70px'>
+				<a href='" . $row['username'] . "' style='color: #1485BD;' >
+				<div class='row'>
+					<div class='col-sm-4'>
+						<img src='" . $row['profile_pic'] . "'  style='width:50px;  margin: 1px 12px 0 2px; '>
 					</div>
-
-					<div class='liveSearchText'>
+					<div class='col-sm-8' >
 						" . $row['first_name'] . " " . $row['last_name'] . "
-						<p>" . $row['username'] ."</p>
-						<p id='grey'>" . $mutual_friends ."</p>
+						<p style='margin-left: 10px; font-size: 12px;'>" . $row['username'] . "</p>
+						<p id='grey' style='margin-left: 10px; font-size: 12px;'>" . $mutual_friends . "</p>
 					</div>
+				</div>
 				</a>
 				</div>";
-
 	}
-
 }
-
-?>

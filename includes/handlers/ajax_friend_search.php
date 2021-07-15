@@ -29,25 +29,20 @@ if($query != "") {
 		}
 
 		if($user->isFriend($row['username'])) {
-			echo "<div class='resultDisplay'>
+			echo "<div class='card shadow p-3 mb-1 bg-white rounded'>
 					<a href='messages.php?u=" . $row['username'] . "' style='color: #000'>
-						<div class='liveSearchProfilePic'>
-							<img src='". $row['profile_pic'] . "'>
+					<div class='row'>
+						<div class='col'>
+							<img src='" . $row['profile_pic'] . "  style='height:10px'>'>
 						</div>
 
-						<div class='liveSearchText'>
-							".$row['first_name'] . " " . $row['last_name']. "
-							<p style='margin: 0;'>". $row['username'] . "</p>
-							<p id='grey'>".$mutual_friends . "</p>
+						<div class='col'>
+							" . $row['first_name'] . " " . $row['last_name'] . "
+							<p style='margin: 0;'>" . $row['username'] . "</p>
 						</div>
+					</div>
 					</a>
 				</div>";
-
-
 		}
-
-
 	}
 }
-
-?>

@@ -205,7 +205,7 @@ class Message
 
 			$is_unread_query = mysqli_query($this->con, "SELECT opened FROM messages WHERE user_to='$userLoggedIn' AND user_from='$username' ORDER BY id DESC");
 			$row = mysqli_fetch_array($is_unread_query);
-			$style = ($row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
+			$style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
 
 
 			$user_found_obj = new User($this->con, $username);
@@ -216,11 +216,17 @@ class Message
 			$split = $split[0] . $dots;
 
 			$return_string .= "<a href='messages.php?u=$username'> 
-								<div class='user_found_messages' style='" . $style . "'>
-								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
-								" . $user_found_obj->getFirstAndLastName() . "
-								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
-								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+								<div class='card shadow p-3 bg-white rounded' style='" . $style . "'>
+									<div class='row'>
+										<div class='col-sm-3'>
+											<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px; width:50px'>
+										</div>
+										<div class='col-sm-9' >
+											" . $user_found_obj->getFirstAndLastName() . "
+											<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
+											<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+										</div>
+									</div>
 								</div>
 								</a>";
 		}

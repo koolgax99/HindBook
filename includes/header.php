@@ -31,9 +31,8 @@ if (isset($_SESSION['username'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/comments.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="assets/js/bootbox.min.js"></script>
-    <script src="assets/js/demo.js"></script>
     <script src="assets/js/jquery.Jcrop.js"></script>
     <script src="assets/js/jcrop_bits.js"></script>
     <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
@@ -43,35 +42,7 @@ if (isset($_SESSION['username'])) {
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background-image: url("assets\images\backgrounds\Social_Media_Background.jpg");
-            background-color: white;
-        }
-
-        @media screen and (min-width: 0px) and (max-width:900px) {
-            .search-bar {
-                font-family: 'Staatliches', cursive;
-                font-size: 17px;
-                position: relative;
-            }
-        }
-
-        @media screen and (min-width: 901px) and (max-width:9000px) {
-            .search-bar {
-                font-family: 'Staatliches', cursive;
-                font-size: 17px;
-                position: relative;
-                right: 50%;
-            }
-
-            .navbar-items {
-                position: relative;
-                left: 58%;
-            }
-        }
-    </style>
+    <script src="assets/js/demo.js"></script>
 </head>
 
 <body>
@@ -151,15 +122,17 @@ if (isset($_SESSION['username'])) {
                         <input class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search" style="border-width:2px; border-radius:50px;">
                         <button class="btn btn-outline-success" type="submit" style="border-radius:50px;">Search</button>
                     </form>
-
-                    <div class="search_results">
-                    </div>
-
-                    <div class="search_results_footer_empty">
-                    </div>
                 </div>
             </div>
         </nav>
+        <div class="search_results">
+        </div>
+
+        <div class="search_results_footer_empty">
+        </div>
+
+        <div class="dropdown_data_window" style="height:0px; border:none;"></div>
+        <input type="hidden" id="dropdown_data_type" value="">
     </header>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

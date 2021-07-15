@@ -122,11 +122,15 @@ class Notification {
 			$style = ($opened == 'no') ? "background-color: #DDEDFF;" : "";
 
 			$return_string .= "<a href='" . $row['link'] . "'> 
-									<div class='resultDisplay resultDisplayNotification' style='" . $style . "'>
-										<div class='notificationsProfilePic'>
-											<img src='" . $user_data['profile_pic'] . "'>
+									<div class='card shadow p-3 bg-white rounded' style='" . $style . "'>
+										<div class='row'>
+											<div class='col-sm-3'>
+												<img src='" . $user_data['profile_pic'] . "' style='border-radius: 5px; margin-right: 5px; width:50px'>
+											</div>
+											<div class='col-sm-9' >
+												<p class='timestamp_smaller' id='grey'>" . $time_message . "</p>" . $row['message'] . "
+											</div>
 										</div>
-										<p class='timestamp_smaller' id='grey'>" . $time_message . "</p>" . $row['message'] . "
 									</div>
 								</a>";
 		}
