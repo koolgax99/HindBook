@@ -6,6 +6,18 @@ if (isset($_POST['post'])) {
 	$uploadOk = 1;
 	$imageName = $_FILES['fileToUpload']['name'];
 	$errorMessage = "";
+	if ($_POST['postType'] == "shop") {
+		$price = $_POST['productPrice'];
+		$name = $_POST['productName'];
+		$description = $_POST['post_text'];
+		$post_text = 'Name: ' . $name
+			. "\n\n"
+			. 'Price: ' . $price
+			. "\n\n"
+			. 'Description: ' . $description;
+	} else {
+		$post_text = $_POST['post_text'];
+	}
 
 	if ($imageName != "") {
 		$targetDir = "assets/images/posts/";
@@ -35,7 +47,7 @@ if (isset($_POST['post'])) {
 
 	if ($uploadOk) {
 		$post = new Post($con, $userLoggedIn);
-		$post->submitPost($_POST['post_text'], 'none', $imageName);
+		$post->submitPost($post_text, 'none', $imageName);
 	} else {
 		echo "<div style='text-align:center;' class='alert alert-danger'>
 				$errorMessage
@@ -176,40 +188,42 @@ if (isset($_POST['post'])) {
 			</div>
 			<div class="col-lg-8">
 				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
-					<!-- <div class="main_column column">
-
-						<div class="posts_area"></div>
-						<button id="load_more">Load More Posts</button> 
-					<img id="loading" src="assets/images/icons/loading.gif">
-				</div> -->
-
-					<div>
-						<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
-							<div class="row">
-								<input type="file" name="fileToUpload" id="fileToUpload">
+					<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="postType">Choose Post Type</label>
 							</div>
-							<br>
-							<div class="row">
-								<div class="col-10">
-									<textarea name="post_text" id="post_text" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
-								</div>
-								<div class="col">
-									<button class="btn btn-primary" type="submit" name="post" id="post_button" value="Post">Post</button>
-								</div>
+							<select class="custom-select" name="postType" id="postType">
+								<option selected>Select Option</option>
+								<option value="shop">Shop</option>
+								<option value="feed">Feed</option>
+							</select>
+						</div>
+
+						<div id="shopDiv"></div>
+						<div class="form-group">
+							<input type="file" name="fileToUpload" id="fileToUpload">
+						</div>
+						<br>
+						<div class="form-row">
+							<div class="col-10">
+								<textarea name="post_text" id="post_text" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
 							</div>
-							<hr>
-						</form>
-					</div>
-
-					<div>
-						<div class="posts_area"></div>
-						<!-- <button id="load_more">Load More Posts</button>
-						<img id="loading" src="assets/images/icons/loading.gif"> -->
-					</div>
-
+							<div class="col">
+								<button class="btn btn-primary" type="submit" name="post" id="post_button" value="Post">Post</button>
+							</div>
+						</div>
+						<hr>
+					</form>
 				</div>
+
+				<div>
+					<div class="posts_area"></div>
+				</div>
+
 			</div>
 		</div>
+	</div>
 	</div>
 </main>
 
@@ -287,8 +301,28 @@ if (isset($_POST['post'])) {
 				rect.right <= (window.innerWidth || document.documentElement.clientWidth) //* or $(window).width()
 			);
 		}
+
+		$('#postType').change(function() {
+			if (document.getElementById('postType').value == 'shop') {
+				document.getElementById('shopDiv').innerHTML = `<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="productPrice">Price of the Product (INR) </label>
+							<input type="number" name="productPrice" class="form-control" id="productPrice" placeholder="5000">
+						</div>
+						<br>
+						<div class="form-group col-md-6">
+							<label for="productName">Name of the Product</label>
+							<input type="text" name="productName" class="form-control" id="productName" placeholder="Zara Mens TShirt">
+						</div>
+					</div>
+					<br>`;
+			} else {
+				document.getElementById('shopDiv').innerHTML = ``;
+			}
+		})
 	});
 </script>
 </div>
 </body>
+
 </html>
