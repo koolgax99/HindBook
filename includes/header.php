@@ -110,7 +110,7 @@ if (isset($_SESSION['username'])) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="settings.php" class="nav-link">
+                            <a href="video.php" class="nav-link">
                                 <span style="color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Videos</span>
                                 <i class="fa fa-film fa-lg" style="color:#00458B;"></i>
                             </a>
