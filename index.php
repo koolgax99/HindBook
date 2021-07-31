@@ -1,6 +1,11 @@
 <?php
 include("includes/header.php");
 
+function success()
+{
+	echo '<script>window.location = window.location.href;</script>';
+}
+
 if (isset($_POST['post'])) {
 
 	$uploadOk = 1;
@@ -48,10 +53,12 @@ if (isset($_POST['post'])) {
 	if ($uploadOk) {
 		$post = new Post($con, $userLoggedIn);
 		$post->submitPost($post_text, 'none', $imageName);
+		success();
 	} else {
 		echo "<div style='text-align:center;' class='alert alert-danger'>
 				$errorMessage
 			</div>";
+		success();
 	}
 }
 ?>

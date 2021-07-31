@@ -4,7 +4,7 @@ include("includes/classes/User.php");
 include("includes/classes/Post.php");
 include("includes/classes/Message.php");
 include("includes/classes/Notification.php");
-
+include("includes/classes/PostVideo.php");
 
 if (isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
@@ -106,6 +106,13 @@ if (isset($_SESSION['username'])) {
                             <a href="settings.php" class="nav-link">
                                 <span style="color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Settings</span>
                                 <i class="fa fa-cog fa-lg" style="color:#00458B;"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="settings.php" class="nav-link">
+                                <span style="color:#00458B; font-family: 'Staatliches', cursive; font-size:17px;">Videos</span>
+                                <i class="fa fa-film fa-lg" style="color:#00458B;"></i>
                             </a>
                         </li>
 
