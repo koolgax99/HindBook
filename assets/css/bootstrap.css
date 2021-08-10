@@ -1583,6 +1583,8 @@ pre code {
   }
 }
 .container-fluid {
+  display: flex;
+  flex-wrap: nowrap;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;

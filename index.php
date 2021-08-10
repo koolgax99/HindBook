@@ -145,7 +145,7 @@ if (isset($_POST['post'])) {
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
 					<div class="user_details column">
 						<div class="row">
 							<div class="col">
@@ -166,7 +166,7 @@ if (isset($_POST['post'])) {
 					</div>
 				</div>
 				<br>
-				<div class="card shadow p-3 mb-5 bg-white rounded" style=" border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+				<div class="card shadow p-3 mb-5 bg-white rounded" >
 					<div class="card-body">
 						<h4>Popular</h4>
 						<div class="trends">
@@ -234,7 +234,7 @@ if (isset($_POST['post'])) {
 	</div>
 </main>
 
-<div class="footer">
+<!--div class="footer">
 	<div>
 		<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 			<defs>
@@ -248,7 +248,7 @@ if (isset($_POST['post'])) {
 			</g>
 		</svg>
 	</div>
-</div>
+</div-->
 
 <script>
 	$(function() {
