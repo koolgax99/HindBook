@@ -194,7 +194,7 @@ if (isset($_POST['post'])) {
 			<div class="col-1">
 			</div>
 			<div class="col-lg-8">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; z-index:-1;">
 					<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
@@ -217,7 +217,7 @@ if (isset($_POST['post'])) {
 								<textarea name="post_text" id="post_text" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
 							</div>
 							<div class="col">
-								<button class="btn btn-primary" type="submit" name="post" id="post_button" value="Post">Post</button>
+								<button class="btn btn-primary" type="submit" name="post" id="post_button" value="Post" style="border-radius:20px;">Post</button>
 							</div>
 						</div>
 						<hr>

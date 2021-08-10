@@ -37,6 +37,7 @@ body {
   right: 10px;
   top: 40px;
   overflow: scroll;
+  z-index:+1;
 }
 
 .button_holder img {
