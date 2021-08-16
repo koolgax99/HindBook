@@ -113,6 +113,12 @@ if (isset($_POST['post'])) {
 			animation-duration: 20s;
 		}
 
+		#comment_iframe {
+			max-height: 250px;
+			width: 100%;
+			margin-top: 5px;
+		}
+
 		@keyframes move-forever {
 			0% {
 				transform: translate3d(-90px, 0, 0);
@@ -166,7 +172,7 @@ if (isset($_POST['post'])) {
 					</div>
 				</div>
 				<br>
-				<div class="card shadow p-3 mb-5 bg-white rounded" >
+				<div class="card shadow p-3 mb-5 bg-white rounded">
 					<div class="card-body">
 						<h4>Popular</h4>
 						<div class="trends">

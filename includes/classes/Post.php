@@ -318,9 +318,11 @@ class Post
 						<br>
 						$imageDiv
 						</div>
-						
 						<div>
 							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 100px; width: 140px;' ></iframe>
+							<div class='post_comment' id='toggleComment$id' style='display:block; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
+								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+							</div>
 						</div>
 					</div>
 					";

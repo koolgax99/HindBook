@@ -3,6 +3,8 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/comments.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -122,8 +124,14 @@
 	}
 	?>
 	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
-		<textarea name="post_body"></textarea>
-		<input type="submit" name="postComment<?php echo $post_id; ?>" value="Post">
+		<div class="form-row">
+			<div class="col-10">
+				<textarea name="post_body" id="post_body" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
+			</div>
+			<div class="col">
+				<button class="btn btn-primary"  type="submit" name="postComment<?php echo $post_id; ?>" id="post_button" style="border-radius:20px; margin:5px">Comment</button>
+			</div>
+		</div>
 	</form>
 
 	<!-- Load comments -->

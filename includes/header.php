@@ -45,8 +45,13 @@ if (isset($_SESSION['username'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    
+
     <script src="assets/js/demo.js"></script>
+    <style>
+        body {
+            background-color: #E7E9EB !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -66,79 +71,79 @@ if (isset($_SESSION['username'])) {
             $num_requests = $user_obj->getNumberOfFriendRequests();
             ?>
 
-            <div class="container-fluid" >
+            <div class="container-fluid">
                 <a id="content-desktop" class="navbar-brand" href="index.php" style="color:white; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px;">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</a>
-                
 
-    
-                    <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 navbar-items" >
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left; ">Messages&nbsp;</span>
-                                <i class="bi bi-chat-dots" style="color:white">&nbsp;</i>
-                                <?php
-                                if ($num_messages > 0)
-                                    echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
-                                ?>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Notifications&nbsp;</span>
-                                <i class="bi bi-bell" style="color:white;">&nbsp;</i>
-                                <?php
-                                if ($num_notifications > 0)
-                                    echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
-                                ?>
-                            </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="requests.php" class="nav-link">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left; ">Requests&nbsp;</span>
-                                <i class="bi bi-people-fill" style="color:white;">&nbsp;</i>
-                                <?php
-                                if ($num_requests > 0)
-                                    echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
-                                ?>
-                            </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="settings.php" class="nav-link">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left;">Settings&nbsp;</span>
-                                <i class="bi bi-gear" style="color:white;">&nbsp;</i>
-                            </a>
-                        </li>
+                <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 navbar-items">
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left; ">Messages&nbsp;</span>
+                            <i class="bi bi-chat-dots" style="color:white">&nbsp;</i>
+                            <?php
+                            if ($num_messages > 0)
+                                echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
+                            ?>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Notifications&nbsp;</span>
+                            <i class="bi bi-bell" style="color:white;">&nbsp;</i>
+                            <?php
+                            if ($num_notifications > 0)
+                                echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
+                            ?>
+                        </a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="video.php" class="nav-link">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Videos&nbsp;</span>
-                                <i class="bi bi-play-circle" style="color:white;">&nbsp;</i>
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="requests.php" class="nav-link">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left; ">Requests&nbsp;</span>
+                            <i class="bi bi-people-fill" style="color:white;">&nbsp;</i>
+                            <?php
+                            if ($num_requests > 0)
+                                echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
+                            ?>
+                        </a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="includes/handlers/logout.php" class="nav-link">
-                                <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Logout&nbsp;</span>
-                                <i class="bi bi-box-arrow-right" style="color:white;"></i>
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="settings.php" class="nav-link">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left;">Settings&nbsp;</span>
+                            <i class="bi bi-gear" style="color:white;">&nbsp;</i>
+                        </a>
+                    </li>
 
-                    </ul>
+                    <li class="nav-item">
+                        <a href="video.php" class="nav-link">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Videos&nbsp;</span>
+                            <i class="bi bi-play-circle" style="color:white;">&nbsp;</i>
+                        </a>
+                    </li>
 
-                    <form class="d-flex search-bar" action="search.php" method="GET" name="search_form">
-                        <input id="content-desktop" class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search" style="border-width:2px; border-radius:50px;">
-                        <button id="content-desktop" class="btn btn-outline-success" type="submit" style="border-radius:50px; border-color:white; background-color:white; font-family:'Quicksand', sans-serif; color:#1778F2; font-weight:bold;">Search</button>
-                    </form>
-                </div>
+                    <li class="nav-item">
+                        <a href="includes/handlers/logout.php" class="nav-link">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px; float:left;">Logout&nbsp;</span>
+                            <i class="bi bi-box-arrow-right" style="color:white;"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex search-bar" action="search.php" method="GET" name="search_form">
+                    <input id="content-desktop" class="form-control me-2" type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input" aria-label="Search" style="border-width:2px; border-radius:50px;">
+                    <button id="content-desktop" class="btn btn-outline-success" type="submit" style="border-radius:50px; border-color:white; background-color:white; font-family:'Quicksand', sans-serif; color:#1778F2; font-weight:bold;">Search</button>
+                </form>
+            </div>
             </div>
         </nav>
 
 
 
         <div id="content-mobile" class="new-icon-bar">
-        <?php
+            <?php
             //Unread messages 
             $messages = new Message($con, $userLoggedIn);
             $num_messages = $messages->getUnreadNumber();
@@ -152,13 +157,13 @@ if (isset($_SESSION['username'])) {
             $num_requests = $user_obj->getNumberOfFriendRequests();
             ?>
 
-            <a href="index.php"><i class="bi bi-house" style="color:#1778F2;"></i></a> 
-            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="bi bi-chat-dots " style="color:#1778F2;"></i></a> 
-            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')"><i class="bi bi-bell " style="color:#1778F2;"></i></a> 
+            <a href="index.php"><i class="bi bi-house" style="color:#1778F2;"></i></a>
+            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="bi bi-chat-dots " style="color:#1778F2;"></i></a>
+            <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')"><i class="bi bi-bell " style="color:#1778F2;"></i></a>
             <a href="requests.php" class="nav-link"><i class="bi bi-people-fill" style="color:#1778F2;"></i></a>
             <a href="requests.php" class="nav-link"><i class="bi bi-search" style="color:#1778F2;"></i></a>
             <a href="video.php" class="nav-link"><i class="bi bi-play-circle" style="color:#1778F2;"></i></a>
-            <a href="settings.php" class="nav-link"><i class="bi bi-gear" style="color:#1778F2;"></i></a> 
+            <a href="settings.php" class="nav-link"><i class="bi bi-gear" style="color:#1778F2;"></i></a>
             <a href="includes/handlers/logout.php" class="nav-link"><i class="bi bi-box-arrow-right" style="color:#FA3E3E;"></i></a>
         </div>
 
