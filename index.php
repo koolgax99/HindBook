@@ -15,9 +15,12 @@ if (isset($_POST['post'])) {
 		$price = $_POST['productPrice'];
 		$name = $_POST['productName'];
 		$description = $_POST['post_text'];
+		$category = $_POST['productCategory'];
 		$post_text = 'Name: ' . $name
 			. "\n\n"
 			. 'Price: ' . $price
+			. "\n\n"
+			. 'Category: ' . $category
 			. "\n\n"
 			. 'Description: ' . $description;
 	} else {
@@ -172,7 +175,7 @@ if (isset($_POST['post'])) {
 					</div>
 				</div>
 				<br>
-				<div class="card shadow p-3 mb-5 bg-white rounded">
+				<!-- <div class="card shadow p-3 mb-5 bg-white rounded">
 					<div class="card-body">
 						<h4>Popular</h4>
 						<div class="trends">
@@ -195,12 +198,12 @@ if (isset($_POST['post'])) {
 							?>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="col-1">
 			</div>
 			<div class="col-lg-8">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; z-index:-1;">
+				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
 					<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
@@ -326,6 +329,19 @@ if (isset($_POST['post'])) {
 						<div class="form-group col-md-6">
 							<label for="productName">Name of the Product</label>
 							<input type="text" name="productName" class="form-control" id="productName" placeholder="Zara Mens TShirt">
+						</div>
+						<br>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="productCategory">Choose Category of Product</label>
+							</div>
+							<select class="custom-select" name="productCategory" id="productCategory">
+								<option selected>Select Category</option>
+								<option value="mobile">Mobile</option>
+								<option value="shoes">Shoes</option>
+								<option value="clothes">Clothes</option>
+								<option value="accessories">Accessories</option>
+							</select>
 						</div>
 					</div>
 					<br>`;

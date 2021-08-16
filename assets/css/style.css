@@ -152,6 +152,7 @@ body {
 }
 
 .new-icon-bar {
+  position: sticky;
   width: 100%;
   background-color: #555;
   overflow: auto;
