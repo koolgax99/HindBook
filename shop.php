@@ -1,37 +1,5 @@
 <?php
 include("includes/header.php");
-
-
-if (isset($_REQUEST['post'])) {
-    $uploadOk = 1;
-    $errorMessage = "";
-    $post_text = $_POST['post_text'];
-    $videoName = $_FILES['uploadvideo']['name'];
-
-    if ($videoName != "") {
-        $type = $_FILES['uploadvideo']['type'];
-        $targetDir = "assets/videos/posts/";
-        $videoName = $targetDir . uniqid() . basename($videoName);
-
-
-        if ($uploadOk) {
-            if (move_uploaded_file($_FILES['uploadvideo']['tmp_name'], $videoName)) {
-                echo "Your video " . $videoName . " has been successfully uploaded";
-            } else {
-                $uploadOk = 0;
-            }
-        }
-    }
-
-    if ($uploadOk) {
-        $post = new PostVideo($con, $userLoggedIn);
-        $post->submitVideo($post_text, $videoName);
-    } else {
-        echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage
-			</div>";
-    }
-}
 ?>
 
 <head>
@@ -84,6 +52,12 @@ if (isset($_REQUEST['post'])) {
             animation-duration: 20s;
         }
 
+        #comment_iframe {
+            max-height: 250px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
         @keyframes move-forever {
             0% {
                 transform: translate3d(-90px, 0, 0);
@@ -108,11 +82,6 @@ if (isset($_REQUEST['post'])) {
             h1 {
                 font-size: 24px;
             }
-        }
-
-        video {
-            width: 100% !important;
-            height: auto !important;
         }
     </style>
 </head>
@@ -146,25 +115,6 @@ if (isset($_REQUEST['post'])) {
             <div class="col-1">
             </div>
             <div class="col-lg-8">
-                <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
-                    <form name="video" enctype="multipart/form-data" method="post" action="">
-                        <input name="MAX_FILE_SIZE" value="100000000000000" type="hidden" />
-
-                        <div class="form-group">
-                            <input type="file" name="uploadvideo" />
-                        </div>
-                        <br>
-                        <div class="form-row">
-                            <div class="col-10">
-                                <textarea name="post_text" id="post_text" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
-                            </div>
-                            <div class="col">
-                                <button class="btn btn-primary" type="submit" name="post" id="post_button" value="Post">Post</button>
-                            </div>
-                        </div>
-                        <hr>
-                    </form>
-                </div>
                 <div>
                     <div class="posts_area"></div>
                 </div>
@@ -203,7 +153,7 @@ if (isset($_REQUEST['post'])) {
             var page = $('.posts_area').find('.nextPage').val() || 1; //If .nextPage couldn't be found, it must not be on the page yet (it must be the first time loading posts), so use the value '1'
 
             $.ajax({
-                url: "includes/handlers/ajax_load_videos.php",
+                url: "includes/handlers/ajax_load_products.php",
                 type: "POST",
                 data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
                 cache: false,

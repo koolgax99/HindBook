@@ -11,6 +11,7 @@ if (isset($_POST['post'])) {
 	$uploadOk = 1;
 	$imageName = $_FILES['fileToUpload']['name'];
 	$errorMessage = "";
+	$type = $_POST['postType'];
 	if ($_POST['postType'] == "shop") {
 		$price = $_POST['productPrice'];
 		$name = $_POST['productName'];
@@ -55,7 +56,7 @@ if (isset($_POST['post'])) {
 
 	if ($uploadOk) {
 		$post = new Post($con, $userLoggedIn);
-		$post->submitPost($post_text, 'none', $imageName);
+		$post->submitPost($post_text, 'none', $imageName, $type);
 		success();
 	} else {
 		echo "<div style='text-align:center;' class='alert alert-danger'>
