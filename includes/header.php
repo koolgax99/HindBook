@@ -108,9 +108,9 @@ if (isset($_SESSION['username'])) {
                     </li>
 
                     <li class="nav-item">
-                        <a href="settings.php" class="nav-link">
-                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left;">Settings&nbsp;</span>
-                            <i class="bi bi-gear" style="color:white;">&nbsp;</i>
+                        <a href="www.whatsapp.com" class="nav-link">
+                            <span id="content-desktop" style="color:white; font-family: 'Quicksand', sans-serif; font-size:15px;  float:left;">Whatsapp&nbsp;</span>
+                            <i class="bi bi-whatsapp" style="color:white;">&nbsp;</i>
                         </a>
                     </li>
 
@@ -160,9 +160,9 @@ if (isset($_SESSION['username'])) {
                 <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="bi bi-chat-dots " style="color:#1778F2;"></i></a>
                 <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')"><i class="bi bi-bell " style="color:#1778F2;"></i></a>
                 <a href="requests.php" class="nav-link"><i class="bi bi-people-fill" style="color:#1778F2;"></i></a>
-                <a href="requests.php" class="nav-link"><i class="bi bi-search" style="color:#1778F2;"></i></a>
+                <a href="shop.php" class="nav-link"><i class="bi bi-bag" style="color:#1778F2;"></i></a>
                 <a href="video.php" class="nav-link"><i class="bi bi-play-circle" style="color:#1778F2;"></i></a>
-                <a href="settings.php" class="nav-link"><i class="bi bi-gear" style="color:#1778F2;"></i></a>
+                <a href="settings.php" class="nav-link"><i class="bi bi-whatsapp" style="color:#1778F2;"></i></a>
                 <a href="includes/handlers/logout.php" class="nav-link"><i class="bi bi-box-arrow-right" style="color:#FA3E3E;"></i></a>
             </div>
         </div>
