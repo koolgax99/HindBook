@@ -212,10 +212,11 @@ class Post
 ?>
 					<script>
 						function toggle<?php echo $id; ?>(event) {
-
+							console.log("Button is working !!!!!!!");
 							var target = $(event.target);
+							console.log(target);
 
-							if (!target.is('a') && !target.is('button')) {
+							if (!target.is('a') || !target.is('button')) {
 								var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
 								if (element.style.display == "block")
@@ -329,7 +330,7 @@ class Post
 							<button class='btn btn-primary' style='margin-top: 24px;'>Share</button>
 						</div>
 						</div>
-						<div class='post_comment' id='toggleComment$id' style='display:block; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
 							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
