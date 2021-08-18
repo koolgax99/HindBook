@@ -212,9 +212,7 @@ class Post
 ?>
 					<script>
 						function toggle<?php echo $id; ?>(event) {
-							console.log("Button is working !!!!!!!");
 							var target = $(event.target);
-							console.log(target);
 
 							if (!target.is('a') || !target.is('button')) {
 								var element = document.getElementById("toggleComment<?php echo $id; ?>");
@@ -223,6 +221,22 @@ class Post
 									element.style.display = "none";
 								else
 									element.style.display = "block";
+							}
+
+						}
+
+						function copyUrl<?php echo $id; ?>(event) {
+							var target = $(event.target);
+
+							if (!target.is('a') || !target.is('button')) {
+								var element = document.getElementById("shareButton<?php echo $id; ?>");
+								const el = document.createElement('textarea');
+								el.value = window.location.protocol + "//" + window.location.host + "/post.php?id=" + <?php echo $id; ?>;
+								document.body.appendChild(el);
+								el.select();
+								document.execCommand('copy');
+								document.body.removeChild(el);
+								element.innerHTML = "Copied !";
 							}
 
 						}
@@ -327,7 +341,7 @@ class Post
 							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
 						</div>
 						<div class='col-sm-4 col-4'>	
-							<button class='btn btn-primary' style='margin-top: 24px;'>Share</button>
+							<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
 						</div>
 						</div>
 						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
@@ -436,16 +450,31 @@ class Post
 				?>
 					<script>
 						function toggle<?php echo $id; ?>(event) {
-
 							var target = $(event.target);
 
-							if (!target.is('a') && !target.is('button')) {
+							if (!target.is('a') || !target.is('button')) {
 								var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
 								if (element.style.display == "block")
 									element.style.display = "none";
 								else
 									element.style.display = "block";
+							}
+
+						}
+
+						function copyUrl<?php echo $id; ?>(event) {
+							var target = $(event.target);
+
+							if (!target.is('a') || !target.is('button')) {
+								var element = document.getElementById("shareButton<?php echo $id; ?>");
+								const el = document.createElement('textarea');
+								el.value = window.location.protocol + "//" + window.location.host + "/post.php?id=" + <?php echo $id; ?>;
+								document.body.appendChild(el);
+								el.select();
+								document.execCommand('copy');
+								document.body.removeChild(el);
+								element.innerHTML = "Copied !";
 							}
 
 						}
@@ -542,11 +571,19 @@ class Post
 						<br>
 						$imageDiv
 						</div>
-						<div>
-							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 100px; width: 140px;' ></iframe>
-							<div class='post_comment' id='toggleComment$id' style='display:block; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
-								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-							</div>
+						<div class='row' style='padding:0px 24px 0px 24px;'>
+						<div class='col-sm-4 col-4'>
+							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
+						</div>
+						</div>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
+							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
 					";
@@ -817,16 +854,34 @@ class Post
 				$profile_pic = $user_row['profile_pic'];
 			?>
 				<script>
-					function toggle<?php echo $id; ?>(e) {
-						if (!e) e = window.event;
-						var target = $(e.target);
-						if (!target.is("a")) {
+					function toggle<?php echo $id; ?>(event) {
+						var target = $(event.target);
+
+						if (!target.is('a') || !target.is('button')) {
 							var element = document.getElementById("toggleComment<?php echo $id; ?>");
+
 							if (element.style.display == "block")
 								element.style.display = "none";
 							else
 								element.style.display = "block";
 						}
+
+					}
+
+					function copyUrl<?php echo $id; ?>(event) {
+						var target = $(event.target);
+
+						if (!target.is('a') || !target.is('button')) {
+							var element = document.getElementById("shareButton<?php echo $id; ?>");
+							const el = document.createElement('textarea');
+							el.value = window.location.protocol + "//" + window.location.host + "/post.php?id=" + <?php echo $id; ?>;
+							document.body.appendChild(el);
+							el.select();
+							document.execCommand('copy');
+							document.body.removeChild(el);
+							element.innerHTML = "Copied !";
+						}
+
 					}
 				</script>
 				<?php
@@ -929,16 +984,11 @@ class Post
 							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
 						</div>
 						<div class='col-sm-4 col-4'>	
-							
-							<button class='btn btn-primary' style='margin-top: 24px;'>Share</button>
+							<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
 						</div>
 						</div>
 						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
 							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-						</div>
-
-						<div class='animate slide-in-down notification-button'>
-							<i class='fa fa-files-o'></i> Link Copied to Clipboard
 						</div>
 					</div>
 					";
