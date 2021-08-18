@@ -856,9 +856,9 @@ class Post
 
 
 					if ($interval->m == 1) {
-						$time_message = $interval->m . " month" . $days;
+						$time_message = $interval->m . " month " . $days;
 					} else {
-						$time_message = $interval->m . " months" . $days;
+						$time_message = $interval->m . " months " . $days;
 					}
 				} else if ($interval->d >= 1) {
 					if ($interval->d == 1) {
@@ -887,45 +887,61 @@ class Post
 				}
 
 				if ($imagePath != "") {
-					$imageDiv = "<div class='postedImage'>
-										<img src='$imagePath'>
-									</div>";
+					$imageDiv = "<img class='card-img-top img-fluid' style='max-width:100%; display:block; max-height:300px; margin-left:5px auto' src='$imagePath'>";
 				} else {
 					$imageDiv = "";
 				}
 
-				$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
-								<div class='row' >
-									<div class='col-3' style='float:left'>
-										<img src='$profile_pic' width='50'>
-									</div>
-
-								<div class='col-5' style='color:#ACACAC; float:right'>
-									<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
-									$delete_button
-								</div>
-								</div>
-
-								<div id='post_body'>
-									$body
-									<br>
-									$imageDiv
-									<br>
-									<br>
-								</div>
-
-								<div class='newsfeedPostOptions'>
-									Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
-									<iframe src='like.php?post_id=$id' scrolling='no'></iframe>
-								</div>
-
+				$str .= "
+					<div class='card shadow p-3 mb-5 bg-white rounded' style='padding: 20px;'>
+                        <div>
+                            <div style='float: left;'>
+							<div class='row'>
+                                <div class='col-5'>
+                                <img class='img-fluid' src='$profile_pic' style='width:100px;height:100px;' />
+                                </div>
+                                <div class='col' style='width: 270px;'>
+                                    <a href='$added_by' style='margin-right: 20px;'> $first_name $last_name </a>
+									<br>$time_message<br/>
+                                </div>
 							</div>
-							<div class='post_comment' id='toggleComment$id' style='display:none;'>
-								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-							</div>
-							<hr>";
 
+                            </div>
+                            <div style='float: right;'>
+							$delete_button
+                            </div>
+                        </div>
+						<br>
+						<div class='container' align='center'>
+						<div class='row'>
+										<p> 
+										$body
+										</p>
+										</div>
+						<br>
+						$imageDiv
+						</div>
+						<div class='row' style='padding:0px 24px 0px 24px;'>
+						<div class='col-sm-4 col-4'>
+							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							
+							<button class='btn btn-primary' style='margin-top: 24px;'>Share</button>
+						</div>
+						</div>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
+							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+						</div>
 
+						<div class='animate slide-in-down notification-button'>
+							<i class='fa fa-files-o'></i> Link Copied to Clipboard
+						</div>
+					</div>
+					";
 				?>
 				<script>
 					$(document).ready(function() {
