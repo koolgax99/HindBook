@@ -129,7 +129,7 @@
 				<textarea name="post_body" id="post_body" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
 			</div>
 			<div class="col">
-				<button class="btn btn-primary"  type="submit" name="postComment<?php echo $post_id; ?>" id="post_button" style="border-radius:20px; margin:5px">Comment</button>
+				<button class="btn btn-primary" type="submit" name="postComment<?php echo $post_id; ?>" id="post_button" style="border-radius:20px; margin:5px">Comment</button>
 			</div>
 		</div>
 	</form>
@@ -155,7 +155,7 @@
 			$end_date = new DateTime($date_time_now); //Current time
 			$interval = $start_date->diff($end_date); //Difference between dates 
 			if ($interval->y >= 1) {
-				if ($interval == 1)
+				if ($interval->y == 1)
 					$time_message = $interval->y . " year ago"; //1 year ago
 				else
 					$time_message = $interval->y . " years ago"; //1+ year ago

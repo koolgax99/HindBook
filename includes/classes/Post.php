@@ -318,11 +318,19 @@ class Post
 						<br>
 						$imageDiv
 						</div>
-						<div>
-							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 100px; width: 140px;' ></iframe>
-							<div class='post_comment' id='toggleComment$id' style='display:block; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
-								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
-							</div>
+						<div class='row' style='padding:0px 24px 0px 24px;'>
+						<div class='col-sm-4 col-4'>
+							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+						</div>
+						<div class='col-sm-4 col-4'>	
+							<button class='btn btn-primary' style='margin-top: 24px;'>Share</button>
+						</div>
+						</div>
+						<div class='post_comment' id='toggleComment$id' style='display:block; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
+							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
 					";

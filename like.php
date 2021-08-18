@@ -70,7 +70,7 @@
 		$query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE id='$post_id'");
 		$total_user_likes++;
 		$user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES (NULL, '$userLoggedIn', '$post_id')");
+		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES (NULL, '$userLoggedIn', '$post_id',0)");
 
 		//Insert Notification
 		if ($user_liked != $userLoggedIn) {
@@ -94,7 +94,7 @@
 	if ($num_rows > 0) {
 		echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
 				<br>
-				<button type="submit" class="btn btn-primary" style="margin-left:23px; width " name="unlike_button" value="Unlike">
+				<button type="submit" class="btn btn-primary"  name="unlike_button" value="Unlike">
 				<i class="fa fa-thumbs-down fa-lg"></i> Unlike ' . $total_likes . '
 				</button>
 			</form>
@@ -102,7 +102,7 @@
 	} else {
 		echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
 				<br>
-				<button type="submit" class="btn btn-primary" style="margin-left:23px"name="like_button" value="Like">
+				<button type="submit" class="btn btn-primary" name="like_button" value="Like">
 					<i class="fa fa-thumbs-up fa-lg"></i> Like ' . $total_likes . '
 				</button>
 			</form>
