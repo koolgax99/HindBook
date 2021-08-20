@@ -152,10 +152,12 @@ body {
 }
 
 .new-icon-bar {
-  position: sticky;
+  position: fixed;
   width: 100%;
   background-color: #555;
   overflow: auto;
+  z-index: 9999;
+  top: 0;
 }
 
 .new-icon-bar a {

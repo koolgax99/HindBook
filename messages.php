@@ -22,6 +22,16 @@ if (isset($_POST['post_message'])) {
 }
 ?>
 
+<head>
+	<style>
+		@media (max-width: 768px) {
+			.col-lg-3 {
+				margin-top: 100px;
+			}
+		}
+	</style>
+</head>
+
 <main style="margin-top: 40px;">
 	<div class="container">
 		<div class="row">

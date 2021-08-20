@@ -15,6 +15,12 @@ if (isset($_GET['id'])) {
 			width: 100%;
 			margin-top: 5px;
 		}
+
+		@media (max-width: 768px) {
+			.col-lg-3 {
+				margin-top: 100px;
+			}
+		}
 	</style>
 </head>
 

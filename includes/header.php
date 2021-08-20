@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <header>
-        <nav id="content-desktop" class="navbar navbar-expand-lg navbar-light navbar-fixed-top" style="background-color:#1778F2; border-bottom:ridge; border-color:#99DDFF; box-shadow :#99DDFF;">
+        <nav id="content-desktop" class="navbar navbar-expand-lg navbar-light" style="background-color:#1778F2; border-bottom:ridge; border-color:#99DDFF; box-shadow :#99DDFF;">
             <?php
             //Unread messages 
             $messages = new Message($con, $userLoggedIn);
@@ -154,16 +154,23 @@ if (isset($_SESSION['username'])) {
             $user_obj = new User($con, $userLoggedIn);
             $num_requests = $user_obj->getNumberOfFriendRequests();
             ?>
-            <h1 style="padding: 10px; color:white; background-color:#1778F2; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px; text-align:center">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</h1>
+            <div class="row">
+                <div class="col-9" style="background-color:#1778F2; padding:0px">
+                    <h1 style="padding: 10px; color:white; background-color:#1778F2; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px; text-align:center">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</h1>
+                </div>
+                <div class="col-3" style="background-color: #1778F2; padding:0px;">
+                    <a href="includes/handlers/logout.php" style="background-color: #1778F2;"><i class="bi bi-box-arrow-right" style="color:#FA3E3E;"></i></a>
+                </div>
+            </div>
             <div class="row">
                 <a href="index.php"><i class="bi bi-house" style="color:#1778F2;"></i></a>
                 <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')"><i class="bi bi-chat-dots " style="color:#1778F2;"></i></a>
                 <a href="javascript:void(0);" class="nav-link" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')"><i class="bi bi-bell " style="color:#1778F2;"></i></a>
                 <a href="requests.php" class="nav-link"><i class="bi bi-people-fill" style="color:#1778F2;"></i></a>
+                <a href="search.php" class="nav-link"><i class="bi bi-search" style="color:#1778F2;"></i></a>
                 <a href="shop.php" class="nav-link"><i class="bi bi-bag" style="color:#1778F2;"></i></a>
                 <a href="video.php" class="nav-link"><i class="bi bi-play-circle" style="color:#1778F2;"></i></a>
                 <a href="settings.php" class="nav-link"><i class="bi bi-whatsapp" style="color:#1778F2;"></i></a>
-                <a href="includes/handlers/logout.php" class="nav-link"><i class="bi bi-box-arrow-right" style="color:#FA3E3E;"></i></a>
             </div>
         </div>
 

@@ -59,6 +59,12 @@ if (isset($_POST['post_message'])) {
     margin-left: 0px;
     padding-left: 0px;
   }
+
+  @media (max-width: 768px) {
+    .col-lg-3 {
+      margin-top: 100px;
+    }
+  }
 </style>
 <main style="margin-top: 40px;">
   <div class="container">

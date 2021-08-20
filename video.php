@@ -108,6 +108,10 @@ if (isset($_REQUEST['post'])) {
             h1 {
                 font-size: 24px;
             }
+
+            .col-lg-3 {
+                margin-top: 100px;
+            }
         }
 
         video {
