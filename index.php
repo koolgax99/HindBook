@@ -123,6 +123,10 @@ if (isset($_POST['post'])) {
 			margin-top: 5px;
 		}
 
+		.card shadow mb-5 bg-white rounded {
+			padding: 16px;
+		}
+
 		@keyframes move-forever {
 			0% {
 				transform: translate3d(-90px, 0, 0);
@@ -150,6 +154,15 @@ if (isset($_POST['post'])) {
 
 			.col-lg-3 {
 				margin-top: 100px;
+			}
+
+			.col-lg-8 {
+				padding: 0px;
+
+			}
+
+			.card shadow mb-5 bg-white rounded {
+				padding: 5px;
 			}
 		}
 	</style>

@@ -174,9 +174,6 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
 
-
-
-
         <div class="search_results">
         </div>
 

@@ -309,7 +309,7 @@ class Post
 					}
 
 					$str .= "
-					<div class='card shadow p-3 mb-5 bg-white rounded' style='padding: 20px;'>
+					<div class='card shadow p-2 mb-5 bg-white rounded'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>
@@ -545,7 +545,7 @@ class Post
 					}
 
 					$str .= "
-					<div class='card shadow p-3 mb-5 bg-white rounded' style='padding: 20px;'>
+					<div class='card shadow mb-5 bg-white rounded'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>
