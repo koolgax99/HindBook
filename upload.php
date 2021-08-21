@@ -180,10 +180,17 @@ if (isset($_POST['x'])) {
 ?>
 <div id="Overlay" style=" width:100%; height:100%; border:0px #990000 solid; position:absolute; top:0px; left:0px; z-index:2000; display:none;"></div>
 
+<head>
+	<style>
+		.upload-box {
+			margin-top: 150px
+		}
+	</style>
+</head>
 
 <main style="margin-top: 40px;">
 	<div class="container">
-		<div class="row">
+		<div class="row upload-box">
 			<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
 				<div id="formExample">
 					<p><b> <?= $msg ?> </b></p>

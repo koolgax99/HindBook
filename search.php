@@ -15,9 +15,17 @@ if (isset($_GET['type'])) {
 }
 ?>
 
+<head>
+	<style>
+		.search-results {
+			margin-top: 150px
+		}
+	</style>
+</head>
+
 <main style="margin-top: 40px;">
 	<div class="container">
-		<div class="row">
+		<div class="row search-results">
 			<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
 
 				<?php

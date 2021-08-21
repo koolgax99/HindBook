@@ -57,7 +57,7 @@ if (isset($_POST['post_message'])) {
 					</div>
 				</div>
 				<br>
-				<div class="card shadow p-3 mb-5 bg-white rounded" style=" border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+				<div class="card shadow mb-5 bg-white rounded" style=" border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
 					<div class="card-body">
 						<h4>Conversations</h4>
 
@@ -72,9 +72,9 @@ if (isset($_POST['post_message'])) {
 			<div class="col-1">
 			</div>
 			<div class="col-lg-8">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+				<div class="card shadow p-1 mb-5 bg-white rounded" style="padding: 10px;">
 					<div>
-						<div class="card shadow p-3 mb-5 bg-white rounded">
+						<div class="card shadow p-1 mb-5 bg-white rounded">
 							<?php
 							if ($user_to != "new") {
 								echo "<h4>You and <a href='$user_to'>" . $user_to_obj->getFirstAndLastName() . "</a></h4><hr><br>";

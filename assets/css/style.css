@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 body {
   background-image: url("assets\images\backgrounds\Social_Media_Background.jpg");
   background-color: white;
@@ -6,7 +6,7 @@ body {
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
   .search-bar {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 17px;
     position: relative;
   }
@@ -14,12 +14,11 @@ body {
 
 @media screen and (min-width: 901px) and (max-width: 9000px) {
   .search-bar {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-size: 17px;
     position: relative;
     right: 50%;
   }
-
 
   .navbar-items {
     position: relative;
@@ -35,9 +34,9 @@ body {
   width: 300px;
   position: absolute;
   right: 10px;
-  top: 40px;
+  top: 80px;
   overflow: scroll;
-  z-index:+1;
+  z-index: +1;
 }
 
 .button_holder img {
@@ -141,14 +140,20 @@ body {
   float: left;
 }
 
-#content-desktop {display: block;}
-#content-mobile {display: none;}
+#content-desktop {
+  display: block;
+}
+#content-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
-
-#content-desktop {display: none;}
-#content-mobile {display: block;}
-
+  #content-desktop {
+    display: none;
+  }
+  #content-mobile {
+    display: block;
+  }
 }
 
 .new-icon-bar {
@@ -163,7 +168,7 @@ body {
 .new-icon-bar a {
   background-color: white;
   float: left;
-  width: 12.50%;
+  width: 12.5%;
   text-align: center;
   padding: 8px 0;
   transition: all 0.3s ease;

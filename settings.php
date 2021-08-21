@@ -3,9 +3,17 @@ include("includes/header.php");
 include("includes/form_handlers/settings_handler.php");
 ?>
 
+<head>
+	<style>
+		.settings-box {
+			margin-top: 150px
+		}
+	</style>
+</head>
+
 <main style="margin-top: 40px;">
 	<div class="container" style="max-width: 600px;">
-		<div class="row">
+		<div class="row settings-box">
 			<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border:solid #1778F2;  align-items:center">
 
 				<h4>Account Settings</h4>
