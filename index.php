@@ -123,7 +123,7 @@ if (isset($_POST['post'])) {
 			margin-top: 5px;
 		}
 
-		.card shadow mb-5 bg-white rounded {
+		.card shadow mb-2 bg-white rounded {
 			padding: 16px;
 		}
 
@@ -161,7 +161,7 @@ if (isset($_POST['post'])) {
 
 			}
 
-			.card shadow mb-5 bg-white rounded {
+			.card shadow mb-2 bg-white rounded {
 				padding: 5px;
 			}
 		}
@@ -172,7 +172,7 @@ if (isset($_POST['post'])) {
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+				<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
 					<div class="user_details column">
 						<div class="row">
 							<div class="col">
@@ -193,7 +193,7 @@ if (isset($_POST['post'])) {
 					</div>
 				</div>
 				<br>
-				<!-- <div class="card shadow p-3 mb-5 bg-white rounded">
+				<!-- <div class="card shadow p-3 mb-2 bg-white rounded">
 					<div class="card-body">
 						<h4>Popular</h4>
 						<div class="trends">
@@ -221,9 +221,9 @@ if (isset($_POST['post'])) {
 			<div class="col-1">
 			</div>
 			<div class="col-lg-8">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+				<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
 					<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
-						<div class="input-group mb-3">
+						<div class="input-group mb-2">
 							<div class="input-group-prepend">
 								<label class="input-group-text" for="postType">Choose Post Type</label>
 							</div>
@@ -349,7 +349,7 @@ if (isset($_POST['post'])) {
 							<input type="text" name="productName" class="form-control" id="productName" placeholder="Zara Mens TShirt">
 						</div>
 						<br>
-						<div class="input-group mb-3">
+						<div class="input-group mb-2">
 							<div class="input-group-prepend">
 								<label class="input-group-text" for="productCategory">Choose Category of Product</label>
 							</div>

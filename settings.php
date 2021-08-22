@@ -14,7 +14,7 @@ include("includes/form_handlers/settings_handler.php");
 <main style="margin-top: 40px;">
 	<div class="container" style="max-width: 600px;">
 		<div class="row settings-box">
-			<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border:solid #1778F2;  align-items:center">
+			<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px; border:solid #1778F2;  align-items:center">
 
 				<h4>Account Settings</h4>
 				<?php

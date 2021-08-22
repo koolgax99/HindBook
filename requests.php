@@ -13,7 +13,7 @@ include("includes/header.php"); //Header
 <main style="margin-top: 40px;">
 	<div class="container">
 		<div class="row friend-requests">
-			<div class="card shadow p-3 mb-3 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+			<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
 				<h4>Friend Requests</h4>
 				<?php
 				$query = mysqli_query($con, "SELECT * FROM friend_requests WHERE user_to='$userLoggedIn'");

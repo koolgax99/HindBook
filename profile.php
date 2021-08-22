@@ -70,7 +70,7 @@ if (isset($_POST['post_message'])) {
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+        <div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
           <div class="user_details column">
             <div class="row">
               <div class="col">
@@ -130,8 +130,8 @@ if (isset($_POST['post_message'])) {
       <div class="col-1">
       </div>
       <div class="col-lg-8">
-        <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
+          <ul class="nav nav-pills mb-2" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
             </li>
@@ -147,7 +147,7 @@ if (isset($_POST['post_message'])) {
               <div role="tabpanel" class="tab-pane" id="messages_div">
                 <?php
                 echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
-                echo "<div class='card shadow p-3 mb-5 bg-white rounded ' id='scroll_messages'>";
+                echo "<div class='card shadow p-3 mb-2 bg-white rounded ' id='scroll_messages'>";
                 echo $message_obj->getMessages($username);
                 echo "</div>";
                 ?>

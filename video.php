@@ -125,7 +125,7 @@ if (isset($_REQUEST['post'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+                <div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
                     <div class="user_details column">
                         <div class="row">
                             <div class="col">
@@ -150,7 +150,7 @@ if (isset($_REQUEST['post'])) {
             <div class="col-1">
             </div>
             <div class="col-lg-8">
-                <div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+                <div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
                     <form name="video" enctype="multipart/form-data" method="post" action="">
                         <input name="MAX_FILE_SIZE" value="100000000000000" type="hidden" />
 

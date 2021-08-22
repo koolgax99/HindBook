@@ -191,7 +191,7 @@ if (isset($_POST['x'])) {
 <main style="margin-top: 40px;">
 	<div class="container">
 		<div class="row upload-box">
-			<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
+			<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px; border-bottom:solid #99DDFF; border-left:solid #99DDFF;">
 				<div id="formExample">
 					<p><b> <?= $msg ?> </b></p>
 					<form action="upload.php" method="post" enctype="multipart/form-data">

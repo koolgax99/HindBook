@@ -154,7 +154,7 @@ class PostVideo
                 }
 
                 $str .= "
-				<div class='card shadow p-3 mb-5 bg-white rounded' style='padding: 20px;'>
+				<div class='card shadow p-3 mb-2 bg-white rounded' style='padding: 20px;'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>

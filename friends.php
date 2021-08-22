@@ -22,7 +22,7 @@ if (isset($_GET['username'])) {
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<div class="card shadow p-3 mb-5 bg-white rounded" style="padding: 10px;">
+				<div class="card shadow p-3 mb-2 bg-white rounded" style="padding: 10px;">
 					<div class="user_details column">
 						<div class="row">
 							<?php
