@@ -78,19 +78,30 @@
 	//Get id of post
 	if (isset($_GET['post_id'])) {
 		$post_id = $_GET['post_id'];
+		$post_type = $_GET['post_type'];
 	}
 
-	$user_query = mysqli_query($con, "SELECT added_by, user_to FROM posts WHERE id='$post_id'");
-	$row = mysqli_fetch_array($user_query);
+	if ($post_type == 'photo') {
+		$user_query = mysqli_query($con, "SELECT added_by, user_to FROM posts WHERE id='$post_id'");
+		$row = mysqli_fetch_array($user_query);
 
-	$posted_to = $row['added_by'];
-	$user_to = $row['user_to'];
+		$posted_to = $row['added_by'];
+		$user_to = $row['user_to'];
+	}
 
-	if (isset($_POST['postComment' . $post_id])) {
+	if ($post_type == 'video') {
+		$user_query = mysqli_query($con, "SELECT added_by FROM videos WHERE id='$post_id'");
+		$row = mysqli_fetch_array($user_query);
+
+		$posted_to = $row['added_by'];
+		$user_to = 'none';
+	}
+
+	if (isset($_POST['postComment' . $post_id . $post_type])) {
 		$post_body = $_POST['post_body'];
 		$post_body = mysqli_escape_string($con, $post_body);
 		$date_time_now = date("Y-m-d H:i:s");
-		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
+		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to','$post_type', '$date_time_now', 'no','$post_id')");
 
 		if ($posted_to != $userLoggedIn) {
 			$notification = new Notification($con, $userLoggedIn);
@@ -103,7 +114,7 @@
 		}
 
 
-		$get_commenters = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id'");
+		$get_commenters = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' AND post_type='$post_type'");
 		$notified_users = array();
 		while ($row = mysqli_fetch_array($get_commenters)) {
 
@@ -118,25 +129,23 @@
 				array_push($notified_users, $row['posted_by']);
 			}
 		}
-
-
 		echo "<p>Comment Posted! </p>";
 	}
 	?>
-	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>" id="comment_form" name="postComment<?php echo $post_id; ?>" method="POST">
+	<form action="comment_frame.php?post_id=<?php echo $post_id; ?>&post_type=<?php echo $post_type; ?>" id="comment_form" name="postComment<?php echo $post_id . $post_type; ?>" method="POST">
 		<div class="form-row">
 			<div class="col-10">
 				<textarea name="post_body" id="post_body" style="width:100%; border-radius:5px" placeholder="Got something to say?"></textarea>
 			</div>
 			<div class="col">
-				<button class="btn btn-primary" type="submit" name="postComment<?php echo $post_id; ?>" id="post_button" style="border-radius:20px; margin:5px">Comment</button>
+				<button class="btn btn-primary" type="submit" name="postComment<?php echo $post_id . $post_type; ?>" id="post_button" style="border-radius:20px; margin:5px">Comment</button>
 			</div>
 		</div>
 	</form>
 
 	<!-- Load comments -->
 	<?php
-	$get_comments = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id ASC");
+	$get_comments = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' AND post_type='$post_type' ORDER BY id ASC");
 	$count = mysqli_num_rows($get_comments);
 
 	if ($count != 0) {
@@ -199,10 +208,7 @@
 					$time_message = $interval->s . " seconds ago";
 				}
 			}
-
 			$user_obj = new User($con, $posted_by);
-
-
 	?>
 			<div class="comment_section">
 				<a href="<?php echo $posted_by ?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>" style="float:left;" height="30"></a>

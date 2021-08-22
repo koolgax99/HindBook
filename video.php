@@ -118,6 +118,12 @@ if (isset($_REQUEST['post'])) {
             width: 100% !important;
             height: auto !important;
         }
+
+        #comment_iframe {
+            max-height: 250px;
+            width: 100%;
+            margin-top: 5px;
+        }
     </style>
 </head>
 

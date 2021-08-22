@@ -87,7 +87,7 @@
     if ($num_rows > 0) {
         echo '<form action="like_video.php?post_id=' . $post_id . '" method="POST">
 				<br>
-				<button type="submit" class="btn btn-primary" style="margin-left:23px; width " name="unlike_button" value="Unlike">
+				<button type="submit" class="btn btn-primary" name="unlike_button" value="Unlike">
 				<i class="fa fa-thumbs-down fa-lg"></i> Unlike ' . $total_likes . '
 				</button>
 			</form>
@@ -95,7 +95,7 @@
     } else {
         echo '<form action="like_video.php?post_id=' . $post_id . '" method="POST">
 				<br>
-				<button type="submit" class="btn btn-primary" style="margin-left:23px"name="like_button" value="Like">
+				<button type="submit" class="btn btn-primary" name="like_button" value="Like">
 					<i class="fa fa-thumbs-up fa-lg"></i> Like ' . $total_likes . '
 				</button>
 			</form>

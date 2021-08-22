@@ -314,7 +314,7 @@ class Post
                             <div style='float: left;'>
 							<div class='row'>
                                 <div class='col-3'>
-                                <img class='img-fluid' src='$profile_pic' style='width:70px;height:70px;' />
+                                <img class='img-fluid' src='$profile_pic' style='width:70px;' />
                                 </div>
                                 <div class='col' style='width: 270px;'>
                                     <a href='$added_by' style='margin-right: 20px;'> $first_name $last_name </a>
@@ -347,7 +347,7 @@ class Post
 							</div>
 						</div>
 						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px;'>
-							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+							<iframe src='comment_frame.php?post_id=$id&post_type=photo' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
 					";
@@ -539,53 +539,57 @@ class Post
 					}
 
 					if ($imagePath != "") {
-						$imageDiv = "<img class='card-img-top img-fluid' style='max-width:100%; display:block; max-height:300px; margin-left:5px auto' src='$imagePath'>";
+						$imageDiv = "
+						<img style='
+							max-height: 300px;
+							max-width: 100%;
+							display: block;
+							margin: 5px auto;' src='$imagePath'>
+						";
 					} else {
 						$imageDiv = "";
 					}
 
 					$str .= "
-					<div class='card shadow mb-2 bg-white rounded'>
+					<div class='card shadow p-2 mb-2 bg-white rounded'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>
-                                <div class='col-5'>
-                                <img class='img-fluid' src='$profile_pic' style='width:100px;height:100px;' />
+                                <div class='col-3'>
+                                <img class='img-fluid' src='$profile_pic' style='width:70px;' />
                                 </div>
                                 <div class='col' style='width: 270px;'>
                                     <a href='$added_by' style='margin-right: 20px;'> $first_name $last_name </a>
 									<br>$time_message<br/>
                                 </div>
 							</div>
-
                             </div>
                             <div style='float: right;'>
 							$delete_button
                             </div>
                         </div>
 						<br>
-						<div class='container' align='center'>
-						<div class='row'>
-										<p> 
-										$body
-										</p>
-										</div>
-						<br>
-						$imageDiv
+						<div class='container' style='padding:0px'>
+							<div class='row'>
+								<p> 
+									$body
+								</p>
+							</div>
+							$imageDiv
+							</div>
+							<div class='row'>
+							<div class='col-sm-4 col-4'>
+								<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
+							</div>
 						</div>
-						<div class='row' style='padding:0px 24px 0px 24px;'>
-						<div class='col-sm-4 col-4'>
-							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
-						</div>
-						<div class='col-sm-4 col-4'>	
-							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
-						</div>
-						<div class='col-sm-4 col-4'>	
-							<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
-						</div>
-						</div>
-						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
-							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px;'>
+							<iframe src='comment_frame.php?post_id=$id&post_type=photo' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
 					";
@@ -746,46 +750,60 @@ class Post
 				}
 
 				if ($imagePath != "") {
-					$imageDiv = "<img class='card-img-top img-fluid' style='max-width:100%; display:block; max-height:300px; margin-left:5px auto' src='$imagePath'>";
+					$imageDiv = "
+					<img style='
+							max-height: 300px;
+							max-width: 100%;
+							display: block;
+							margin: 5px auto;' src='$imagePath'>
+					";
 				} else {
 					$imageDiv = "";
 				}
 
 				$str .= "
-				<div class='card shadow p-3 mb-2 bg-white rounded' style='padding: 20px;'>
+				<div class='card shadow p-2 mb-2 bg-white rounded'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>
-                                <div class='col-5'>
-                                <img class='img-fluid' src='$profile_pic' style='width:100px;height:100px;' />
+                                <div class='col-3'>
+                                <img class='img-fluid' src='$profile_pic' style='width:70px;' />
                                 </div>
                                 <div class='col' style='width: 270px;'>
                                     <a href='$added_by' style='margin-right: 20px;'> $first_name $last_name </a>
 									<br>$time_message<br/>
                                 </div>
 							</div>
-
                             </div>
                             <div style='float: right;'>
 							$delete_button
                             </div>
                         </div>
 						<br>
-						<div class='container' align='center'>
-						<div class='row'>
-										<p> 
-										$body
-										</p>
-										</div>
-						<br>
-						$imageDiv
+						<div class='container' style='padding:0px'>
+							<div class='row'>
+								<p> 
+									$body
+								</p>
+							</div>
+							$imageDiv
+							</div>
+							<div class='row'>
+							<div class='col-sm-4 col-4'>
+								<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
+							</div>
 						</div>
-
-						<div>
-							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 100px; width: 140px;' ></iframe>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px;'>
+							<iframe src='comment_frame.php?post_id=$id&post_type=photo' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
-					<hr>";
+					";
 				?>
 				<script>
 					$(document).ready(function() {
@@ -944,53 +962,57 @@ class Post
 				}
 
 				if ($imagePath != "") {
-					$imageDiv = "<img class='card-img-top img-fluid' style='max-width:100%; display:block; max-height:300px; margin-left:5px auto' src='$imagePath'>";
+					$imageDiv = "
+					<img style='
+							max-height: 300px;
+							max-width: 100%;
+							display: block;
+							margin: 5px auto;' src='$imagePath'>
+					";
 				} else {
 					$imageDiv = "";
 				}
 
 				$str .= "
-					<div class='card shadow p-3 mb-2 bg-white rounded' style='padding: 20px;'>
+					<div class='card shadow p-2 mb-2 bg-white rounded'>
                         <div>
                             <div style='float: left;'>
 							<div class='row'>
-                                <div class='col-5'>
-                                <img class='img-fluid' src='$profile_pic' style='width:100px;height:100px;' />
+                                <div class='col-3'>
+                                <img class='img-fluid' src='$profile_pic' style='width:70px;' />
                                 </div>
                                 <div class='col' style='width: 270px;'>
                                     <a href='$added_by' style='margin-right: 20px;'> $first_name $last_name </a>
 									<br>$time_message<br/>
                                 </div>
 							</div>
-
                             </div>
                             <div style='float: right;'>
 							$delete_button
                             </div>
                         </div>
 						<br>
-						<div class='container' align='center'>
-						<div class='row'>
-										<p> 
-										$body
-										</p>
-										</div>
-						<br>
-						$imageDiv
+						<div class='container' style='padding:0px'>
+							<div class='row'>
+								<p> 
+									$body
+								</p>
+							</div>
+							$imageDiv
+							</div>
+							<div class='row'>
+							<div class='col-sm-4 col-4'>
+								<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
+							</div>
+							<div class='col-sm-4 col-4'>	
+								<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
+							</div>
 						</div>
-						<div class='row' style='padding:0px 24px 0px 24px;'>
-						<div class='col-sm-4 col-4'>
-							<iframe src='like.php?post_id=$id' scrolling='no' style='height: 62px; width: 131px;' ></iframe>
-						</div>
-						<div class='col-sm-4 col-4'>	
-							<button class='btn btn-primary' style='margin-top: 24px;' onClick='javascript:toggle$id(event)'>Comment</button>
-						</div>
-						<div class='col-sm-4 col-4'>	
-							<button class='btn btn-primary' id='shareButton$id' style='margin-top: 24px;' onClick='javascript:copyUrl$id(event)'>Share</button>
-						</div>
-						</div>
-						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px; margin: 0 24px 0 24px'>
-							<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+						<div class='post_comment' id='toggleComment$id' style='display:none; padding:10px;  border: solid 1px; border-radius:5px;'>
+							<iframe src='comment_frame.php?post_id=$id&post_type=photo' id='comment_iframe' frameborder='0'></iframe>
 						</div>
 					</div>
 					";
