@@ -677,12 +677,10 @@ class Post
 
 			?>
 				<script>
-					function toggle<?php echo $id; ?>(e) {
+					function toggle<?php echo $id; ?>(event) {
+						var target = $(event.target);
 
-						if (!e) e = window.event;
-
-						var target = $(e.target);
-						if (!target.is("a") && !target.is("button")) {
+						if (!target.is('a') || !target.is('button')) {
 							var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
 							if (element.style.display == "block")
@@ -690,6 +688,23 @@ class Post
 							else
 								element.style.display = "block";
 						}
+
+					}
+
+					function copyUrl<?php echo $id; ?>(event) {
+						var target = $(event.target);
+
+						if (!target.is('a') || !target.is('button')) {
+							var element = document.getElementById("shareButton<?php echo $id; ?>");
+							const el = document.createElement('textarea');
+							el.value = window.location.protocol + "//" + window.location.host + "/post.php?id=" + <?php echo $id; ?>;
+							document.body.appendChild(el);
+							el.select();
+							document.execCommand('copy');
+							document.body.removeChild(el);
+							element.innerHTML = "Copied !";
+						}
+
 					}
 				</script>
 				<?php
