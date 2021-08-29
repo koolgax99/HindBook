@@ -30,13 +30,13 @@ require 'includes/form_handlers/login_handler.php';
 	?>
 
 	<div class="wrapper">
-		<div class="login_box" style="background-color: pink; text-align:center"> 
+		<div class="login_box" style="background-color: #1778F2; text-align:center">
 			<!-- <div class="login_header" style="background-color: pink;"> -->
-			<h1 style="font-size:35px; font-family: 'Staatliches', cursive; font-weight: 600;letter-spacing: 2px;">H!ndB<span style="color:#3FD2C7;">oo</span>k</h1>
+			<h1 style="color:white; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px;">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</h1>
 			<!-- </div> -->
 		</div>
 		<div class="login_box">
-			<div class="login_header">
+			<div class="login_header" style="background-color: #1778F2; text-align:center">
 				<h1>Login</h1>
 				<p style="font-family: 'Montserrat', sans-serif;; color:black;">Login or sign up below!</p>
 			</div>

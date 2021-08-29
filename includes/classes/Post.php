@@ -300,7 +300,6 @@ class Post
 
 					if ($imagePath != "") {
 						$imageDiv = "<img style='
-							max-height: 300px;
 							max-width: 100%;
 							display: block;
 							margin: 5px auto;' src='$imagePath'>";
@@ -541,7 +540,6 @@ class Post
 					if ($imagePath != "") {
 						$imageDiv = "
 						<img style='
-							max-height: 300px;
 							max-width: 100%;
 							display: block;
 							margin: 5px auto;' src='$imagePath'>
@@ -767,7 +765,6 @@ class Post
 				if ($imagePath != "") {
 					$imageDiv = "
 					<img style='
-							max-height: 300px;
 							max-width: 100%;
 							display: block;
 							margin: 5px auto;' src='$imagePath'>
@@ -979,7 +976,6 @@ class Post
 				if ($imagePath != "") {
 					$imageDiv = "
 					<img style='
-							max-height: 300px;
 							max-width: 100%;
 							display: block;
 							margin: 5px auto;' src='$imagePath'>

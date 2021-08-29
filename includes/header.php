@@ -45,11 +45,46 @@ if (isset($_SESSION['username'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="assets/js/demo.js"></script>
     <style>
         body {
             background-color: #E7E9EB !important;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Clear floats */
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 </head>
@@ -174,13 +209,13 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
 
-        <div class="search_results">
+        <div class="search_results" id='content-desktop'>
         </div>
 
-        <div class="search_results_footer_empty">
+        <div class="search_results_footer_empty" id="content-desktop">
         </div>
 
-        <div class="dropdown_data_window" style="height:0px; border:none;"></div>
+        <div class="dropdown_data_window" id="content-desktop" style="height:0px; border:none;"></div>
         <input type="hidden" id="dropdown_data_type" value="">
     </header>
 
@@ -251,5 +286,16 @@ if (isset($_SESSION['username'])) {
                     rect.right <= (window.innerWidth || document.documentElement.clientWidth) //* or $(window).width()
                 );
             }
+
         });
+
+        // function toggleSearch() {
+        //     console.log("working");
+        //     if (document.getElementById('searchBar').style.display = "block") {
+        //         document.getElementById('searchBar').style.display = "none";
+        //     } 
+        //     if(document.getElementById('searchBar').style.display = "none") {
+        //         document.getElementById('searchBar').style.display = "block";
+        //     }
+        // }
     </script>

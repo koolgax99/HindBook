@@ -44,32 +44,6 @@ body {
   width: 20px;
 }
 
-.search_results {
-  background-color: #fff;
-  border: 1px solid #dadada;
-  border-bottom: none;
-  border-top: none;
-  margin-top: 21px;
-}
-
-.search_results_footer {
-  padding: 7px 4px 0px 4px;
-  height: 30px;
-  border: 1px solid #dadada;
-  border-top: none;
-  background-color: #20aae5;
-  text-align: center;
-}
-
-.search_results_footer a {
-  color: #fff;
-}
-
-.search_result {
-  padding: 10px;
-  height: 100px;
-}
-
 .search {
   margin: 8px 0 0 15%;
 }
@@ -111,7 +85,7 @@ body {
 
 .search_result {
   padding: 10px;
-  height: 100px;
+  height: 125px;
 }
 
 .searchPageFriendButtons {

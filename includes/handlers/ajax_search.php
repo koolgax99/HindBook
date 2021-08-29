@@ -28,7 +28,7 @@ if($query != ""){
 		else 
 			$mutual_friends = "";
 
-		echo "<div class='card shadow p-3 bg-white rounded' style='height:70px'>
+		echo "<div class='card shadow p-3 bg-white rounded'>
 				<a href='" . $row['username'] . "' style='color: #1485BD;' >
 				<div class='row'>
 					<div class='col-sm-4'>
