@@ -64,7 +64,6 @@ require 'includes/form_handlers/login_handler.php';
 			<div class="form" id="second">
 				<form action="register.php" method="POST">
 					<div class="input_field">
-
 						<input type="text" class="input" name="reg_fname" placeholder="First Name" value="<?php
 																											if (isset($_SESSION['reg_fname'])) {
 																												echo $_SESSION['reg_fname'];
@@ -72,6 +71,7 @@ require 'includes/form_handlers/login_handler.php';
 																											?>" required>
 					</div>
 					<?php if (in_array("Your first name must be between 2 and 25 characters<br>", $error_array)) echo "Your first name must be between 2 and 25 characters<br>"; ?>
+
 					<div class="input_field">
 						<input type="text" class="input" name="reg_lname" placeholder="Last Name" value="<?php
 																											if (isset($_SESSION['reg_lname'])) {
@@ -80,6 +80,7 @@ require 'includes/form_handlers/login_handler.php';
 																											?>" required>
 					</div>
 					<?php if (in_array("Your last name must be between 2 and 25 characters<br>", $error_array)) echo "Your last name must be between 2 and 25 characters<br>"; ?>
+
 					<div class="input_field">
 						<input type="email" class="input" name="reg_email" placeholder="Email" value="<?php
 																										if (isset($_SESSION['reg_email'])) {
@@ -87,8 +88,8 @@ require 'includes/form_handlers/login_handler.php';
 																										}
 																										?>" required>
 					</div>
-					<div class="input_field">
 
+					<div class="input_field">
 						<input type="email" class="input" name="reg_email2" placeholder="Confirm Email" value="<?php
 																												if (isset($_SESSION['reg_email2'])) {
 																													echo $_SESSION['reg_email2'];
@@ -99,18 +100,21 @@ require 'includes/form_handlers/login_handler.php';
 					else if (in_array("Invalid email format<br>", $error_array)) echo "Invalid email format<br>";
 					else if (in_array("Emails don't match<br>", $error_array)) echo "Emails don't match<br>"; ?>
 					<div class="input_field">
-
 						<input type="password" class="input" name="reg_password" placeholder="Password" required>
 					</div>
-					<div class="input_field">
 
+					<div class="input_field">
 						<input type="password" class="input" name="reg_password2" placeholder="Confirm Password" required>
 					</div>
 					<?php if (in_array("Your passwords do not match<br>", $error_array)) echo "Your passwords do not match<br>";
 					else if (in_array("Your password can only contain english characters or numbers<br>", $error_array)) echo "Your password can only contain english characters or numbers<br>";
 					else if (in_array("Your password must be betwen 5 and 30 characters<br>", $error_array)) echo "Your password must be betwen 5 and 30 characters<br>"; ?>
-					<div class="signup_button">
 
+					<div class="input_field">
+						<input type="text" class="input" name="reg_phone" placeholder="Phone Number" required>
+					</div>
+
+					<div class="signup_button">
 						<input type="submit" class="signup_button" name="register_button" value="Register">
 					</div>
 					<?php if (in_array("<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
