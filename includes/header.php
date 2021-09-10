@@ -191,7 +191,7 @@ if (isset($_SESSION['username'])) {
             ?>
             <div class="row">
                 <div class="col-9" style="background-color:#1778F2; padding:0px">
-                    <h1 style="padding: 10px; color:white; background-color:#1778F2; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px; text-align:center">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</h1>
+                    <h1 style="padding-top: 10px; color:white; background-color:#1778F2; font-size:35px;font-family: 'Roboto', sans-serif; font-weight: 600;letter-spacing: 2px; text-align:center">hindb<span style="color:#1778F2;background-color: white; border-radius:25px; ">o</span><span style="color:#1778F2;background-color: white; border-radius:25px;">o</span>k</h1>
                 </div>
                 <div class="col-3" style="background-color: #1778F2; padding:0px;">
                     <a href="includes/handlers/logout.php" style="background-color: #1778F2;"><i class="bi bi-box-arrow-right" style="color:#FA3E3E;"></i></a>
